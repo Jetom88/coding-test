@@ -7,10 +7,10 @@ const input = require("fs")
   .trim()
   .split(splitFlag);
 
-const score = input[1].split(" ").map(Number);
-const bestScore = Math.max(...score);
-const average = score
+const scores = input[1].split(" ").map(Number);
+const bestScore = Math.max(...scores);
+const sumOfAdjustedScores = scores
   .map((score) => (score / bestScore) * 100)
   .reduce((acc, cur) => acc + cur);
 
-console.log(average / Number(input[0]));
+console.log(sumOfAdjustedScores / Number(input[0]));
