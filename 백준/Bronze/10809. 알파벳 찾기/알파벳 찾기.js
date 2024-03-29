@@ -13,4 +13,9 @@ for (let i = 0; i < alphabet.length; i++) {
   result.push(input.indexOf(alphabet[i]));
 }
 
+
+// for (let i = "a".charCodeAt(); i <= "z".charCodeAt(); i++) {
+//    list.push(input.indexOf(String.fromCharCode(i)));
+// }
+
 console.log(result.join(" "));
