@@ -13,18 +13,16 @@ const alphabet = [
   ["W", "X", "Y", "Z"],
 ];
 
-let result = 0;
-
-const findIdx = (str) => {
+const findDialNumber = (str) => {
   for (let i = 0; i < alphabet.length; i++) {
     if (alphabet[i].includes(str)) {
       return i + 3;
     }
   }
+
+  return 0;
 };
 
-for (let i = 0; i < input.length; i++) {
-  result = result + findIdx(input[i]);
-}
+const result = input.reduce((acc, cur) => acc + findDialNumber(cur), 0);
 
 console.log(result);
