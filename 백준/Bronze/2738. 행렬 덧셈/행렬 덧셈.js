@@ -7,32 +7,22 @@ const input = require("fs")
   .trim()
   .split(splitFlag);
 
-function sliceNum(numArr) {
-  const allArr = [];
-  let divideArr = [];
-  const twoDimensionalArr = [];
+function addMatrices(numArr) {
+  const numRows = parseInt(numArr[0].split(" ")[0]);
+  const numCols = parseInt(numArr[0].split(" ")[1]);
 
-  for (let i = 1; i < numArr.length; i++) {
-    allArr.push(numArr[i].split(" "));
-  }
+  for (let i = 0; i < numRows; i++) {
+    const firstRow = numArr[1 + i].split(" ").map(Number);
+    const secondRow = numArr[1 + numRows + i].split(" ").map(Number);
+    let resultRow = [];
 
-  for (let i = 0; i < allArr.length / 2; i++) {
-    divideArr = [allArr[i], allArr[allArr.length / 2 + i]];
-
-    twoDimensionalArr.push(divideArr);
-  }
-
-  for (let i = 0; i < twoDimensionalArr.length; i++) {
-    const frist = twoDimensionalArr[i][0].map(Number);
-    const second = twoDimensionalArr[i][1].map(Number);
-    let result = [];
-
-    for (let i = 0; i < frist.length; i++) {
-      result.push(frist[i] + second[i]);
+    for (let j = 0; j < numCols; j++) {
+      resultRow.push(firstRow[j] + secondRow[j]);
     }
 
-    console.log(result.join(" "));
+    console.log(resultRow.join(" "));
   }
 }
 
-sliceNum(input);
+//로직 더 간단하게 생각해보자 !
+addMatrices(input);
